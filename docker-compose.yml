@@ -1,0 +1,11 @@
+---
+gs-spring-boot-docker:
+    image: maven:3.3.3-jdk-8
+    working_dir: /build
+    command: bash -c "mvn package && java -jar target/*.jar"
+    volumes:
+        - "./.m2:/root/.m2"
+        - "./gs-spring-boot-docker:/build"
+    ports:
+        - "8080:8080"
+
